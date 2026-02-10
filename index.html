@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abhay Singh Yadav | Portfolio</title>
+  <title>Abhay Singh Yadav | Full Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +29,8 @@
       --shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
       --success: #4facfe;
       --primary: #667eea;
+      --springboot: #6db33f;
+      --java: #007396;
     }
 
     body.light {
@@ -75,7 +77,7 @@
       background: 
         radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
         radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 40% 20%, rgba(109, 179, 63, 0.12) 0%, transparent 50%);
       animation: backgroundShift 15s ease-in-out infinite;
       z-index: -2;
       pointer-events: none;
@@ -104,11 +106,11 @@
       background: var(--bg);
     }
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, var(--accent), var(--success));
+      background: linear-gradient(180deg, var(--accent), var(--springboot));
       border-radius: 10px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, var(--success), var(--accent));
+      background: linear-gradient(180deg, var(--springboot), var(--accent));
     }
 
     /* Background orbits - Enhanced */
@@ -137,7 +139,7 @@
       height: 400px;
       bottom: -100px;
       left: -150px;
-      background: radial-gradient(circle, rgba(79, 172, 254, 0.1), transparent);
+      background: radial-gradient(circle, rgba(109, 179, 63, 0.1), transparent);
     }
     .bg-orbits span:nth-child(3) {
       width: 800px;
@@ -152,7 +154,7 @@
       height: 320px;
       top: 15%;
       left: 10%;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent);
+      background: radial-gradient(circle, rgba(0, 115, 150, 0.12), transparent);
     }
     @keyframes orbit {
       0% {
@@ -179,8 +181,8 @@
     }
 
     .particle:nth-child(odd) {
-      background: var(--success);
-      box-shadow: 0 0 10px var(--success);
+      background: var(--springboot);
+      box-shadow: 0 0 10px var(--springboot);
     }
 
     @keyframes float {
@@ -281,7 +283,7 @@
       top: 0;
       left: 0;
       height: 4px;
-      background: linear-gradient(90deg, #22c55e, var(--accent), #c026d3);
+      background: linear-gradient(90deg, #6db33f, var(--accent), #c026d3);
       width: 0;
       z-index: 40;
       box-shadow: 0 0 20px var(--accent);
@@ -338,7 +340,7 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       font-size: 1.3rem;
-      background: linear-gradient(135deg, var(--accent), var(--success));
+      background: linear-gradient(135deg, var(--accent), var(--springboot));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       transition: all 0.3s ease;
@@ -387,7 +389,7 @@
       cursor: pointer;
     }
 
-    /* Sections - LARGER SPACING */
+    /* Sections */
     .section {
       padding: 8rem 6vw;
       position: relative;
@@ -396,11 +398,12 @@
     .section-header {
       max-width: 700px;
       margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out;
     }
     .section-header h2 {
       font-size: 3rem;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, var(--accent), var(--success));
+      background: linear-gradient(135deg, var(--accent), var(--springboot));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -410,23 +413,69 @@
       line-height: 1.8;
     }
 
-    /* Glass utility - Enhanced */
+    /* Advanced Card Animations */
     .glass {
       background: var(--glass);
       border-radius: 24px;
       border: 1px solid var(--border);
       backdrop-filter: blur(22px);
       box-shadow: var(--shadow);
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .glass:hover::before {
+      left: 100%;
     }
 
     .glass:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
       box-shadow: 0 25px 60px rgba(15, 23, 42, 0.95);
-      border-color: rgba(148, 163, 184, 0.4);
+      border-color: rgba(109, 179, 63, 0.4);
     }
 
-    /* Hero - ENHANCED */
+    /* Scan effect for cards */
+    .glass::after {
+      content: '';
+      position: absolute;
+      inset: -50%;
+      background: conic-gradient(
+        from 210deg,
+        rgba(56, 189, 248, 0.15),
+        transparent,
+        rgba(109, 179, 63, 0.3),
+        transparent,
+        rgba(129, 140, 248, 0.3),
+        rgba(56, 189, 248, 0.15)
+      );
+      animation: scan 3s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .glass:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes scan {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Hero */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
@@ -446,7 +495,7 @@
       content: "";
       position: absolute;
       inset: -40%;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.14), transparent 55%);
+      background: radial-gradient(circle at top, rgba(109, 179, 63, 0.14), transparent 55%);
       opacity: 0.5;
       animation: pulse 4s ease-in-out infinite;
     }
@@ -469,7 +518,7 @@
       font-size: 0.85rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--success);
+      color: var(--springboot);
       margin-bottom: 1.5rem;
       animation: slideDown 0.8s ease-out;
     }
@@ -478,6 +527,17 @@
       from {
         opacity: 0;
         transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -502,7 +562,7 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--success));
+      background: linear-gradient(90deg, var(--accent), var(--springboot));
       animation: expandWidth 1s ease-out 0.5s both;
     }
     @keyframes expandWidth {
@@ -585,9 +645,9 @@
       z-index: 1;
     }
     .btn.primary {
-      background: linear-gradient(135deg, #22c55e, var(--accent));
+      background: linear-gradient(135deg, #6db33f, var(--accent));
       color: #0b1120;
-      box-shadow: 0 14px 40px rgba(34, 197, 94, 0.4);
+      box-shadow: 0 14px 40px rgba(109, 179, 63, 0.4);
     }
     .btn.ghost {
       background: transparent;
@@ -603,7 +663,7 @@
       box-shadow: 0 18px 45px rgba(15, 23, 42, 0.7);
     }
     .btn.primary:hover {
-      box-shadow: 0 18px 45px rgba(34, 197, 94, 0.6);
+      box-shadow: 0 18px 45px rgba(109, 179, 63, 0.6);
     }
 
     .hero-meta {
@@ -626,7 +686,7 @@
       color: var(--text);
     }
 
-    /* Hero orbit - Enhanced with Fun Animations */
+    /* Hero orbit */
     .hero-orbit {
       padding: 2.5rem;
       display: flex;
@@ -658,7 +718,7 @@
         from 210deg,
         rgba(56, 189, 248, 0.15),
         transparent,
-        rgba(34, 197, 94, 0.3),
+        rgba(109, 179, 63, 0.3),
         transparent,
         rgba(129, 140, 248, 0.3),
         rgba(56, 189, 248, 0.15)
@@ -674,7 +734,6 @@
       }
     }
     
-    /* Enhanced ASY Circle - Interactive */
     .avatar-circle {
       position: relative;
       width: 72%;
@@ -696,7 +755,6 @@
       transform: scale(1.05);
     }
 
-    /* Fun Animation States */
     .avatar-circle.bounce {
       animation: crazybounce 0.6s ease;
     }
@@ -761,7 +819,6 @@
       100% { transform: scale(1); opacity: 1; }
     }
 
-    /* Emoji explosion */
     .emoji-burst {
       position: fixed;
       font-size: 2rem;
@@ -781,7 +838,6 @@
       }
     }
 
-    /* Fun confetti effect */
     .confetti {
       position: fixed;
       width: 10px;
@@ -829,7 +885,7 @@
       to { opacity: 1; }
     }
 
-    /* About - LARGER */
+    /* About */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
@@ -840,7 +896,14 @@
       font-size: 1.05rem;
       color: var(--muted);
       line-height: 1.9;
+      animation: cardSlideIn 0.6s ease-out;
     }
+
+    @keyframes cardSlideIn {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
     .about-card h3 {
       margin-bottom: 1.5rem;
       color: var(--text);
@@ -858,7 +921,7 @@
     }
     .timeline-item:hover {
       padding-left: 1rem;
-      border-color: var(--accent);
+      border-color: var(--springboot);
     }
     .timeline-item:last-child {
       border-bottom: none;
@@ -867,7 +930,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--success);
+      color: var(--springboot);
       min-width: 110px;
       font-weight: 600;
     }
@@ -877,7 +940,7 @@
       color: var(--text);
     }
 
-    /* Skills - LARGER */
+    /* Skills */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -887,14 +950,21 @@
       padding: 2.5rem;
       font-size: 1rem;
       position: relative;
+      animation: cardEntrance 0.6s ease-out;
     }
+
+    @keyframes cardEntrance {
+      from { transform: scale(0.8) rotateX(10deg); opacity: 0; }
+      to { transform: scale(1) rotateX(0deg); opacity: 1; }
+    }
+
     .skill-card::before {
       content: '';
       position: absolute;
       inset: -2px;
       border-radius: 24px;
       background: linear-gradient(45deg, 
-        var(--accent), var(--success), var(--primary), var(--accent));
+        var(--accent), var(--springboot), var(--primary), var(--accent));
       background-size: 300%;
       opacity: 0;
       animation: borderGlow 3s linear infinite;
@@ -934,31 +1004,31 @@
       border-radius: 999px;
       font-size: 0.75rem;
       border: 1px solid rgba(148, 163, 184, 0.5);
-      background: rgba(56, 189, 248, 0.1);
+      background: rgba(109, 179, 63, 0.1);
       transition: all 0.3s ease;
     }
     .skill-list li:hover .pill {
-      background: var(--accent);
+      background: var(--springboot);
       color: var(--bg);
-      border-color: var(--accent);
+      border-color: var(--springboot);
     }
     .counters .counter-item {
       margin-bottom: 1.5rem;
       text-align: center;
       padding: 1rem;
       border-radius: 12px;
-      background: rgba(56, 189, 248, 0.05);
+      background: rgba(109, 179, 63, 0.05);
       transition: all 0.3s ease;
     }
     .counters .counter-item:hover {
-      background: rgba(56, 189, 248, 0.1);
+      background: rgba(109, 179, 63, 0.1);
       transform: scale(1.05);
     }
     .counter {
       display: block;
       font-size: 2.5rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--springboot);
       margin-bottom: 0.5rem;
     }
     .label {
@@ -966,13 +1036,14 @@
       color: var(--muted);
     }
 
-    /* Projects - LARGER */
+    /* Projects - Enhanced */
     .filter-bar {
       display: inline-flex;
       padding: 0.4rem;
       border-radius: 999px;
       margin-bottom: 3rem;
       background: rgba(15, 23, 42, 0.6);
+      animation: fadeInUp 0.8s ease-out;
     }
     .filter-btn {
       border-radius: 999px;
@@ -986,9 +1057,9 @@
       font-weight: 500;
     }
     .filter-btn.active {
-      background: var(--accent);
-      color: var(--bg);
-      box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+      background: var(--springboot);
+      color: white;
+      box-shadow: 0 5px 15px rgba(109, 179, 63, 0.4);
     }
     .filter-btn:hover {
       color: var(--text);
@@ -999,13 +1070,16 @@
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 2.5rem;
     }
+    
     .project-card {
       padding: 2.5rem;
       position: relative;
       overflow: hidden;
       font-size: 1rem;
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: cardSlideIn 0.6s ease-out;
     }
+
     .project-card::after {
       content: '';
       position: absolute;
@@ -1013,7 +1087,7 @@
       left: 0;
       width: 100%;
       height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--success));
+      background: linear-gradient(90deg, var(--accent), var(--springboot));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s ease;
@@ -1046,9 +1120,9 @@
       transition: all 0.3s ease;
     }
     .tags span:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: var(--bg);
+      background: var(--springboot);
+      border-color: var(--springboot);
+      color: white;
       transform: translateY(-2px);
     }
     .project-link {
@@ -1063,13 +1137,13 @@
     }
     .project-link:hover {
       gap: 0.8rem;
-      color: var(--success);
+      color: var(--springboot);
     }
     .project-link::after {
       content: '→';
     }
 
-    /* Lab - ENHANCED */
+    /* Lab */
     .lab-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -1078,6 +1152,7 @@
     .lab-card {
       padding: 2.5rem;
       font-size: 1rem;
+      animation: cardEntrance 0.6s ease-out;
     }
     .lab-card h3 {
       margin-bottom: 1.5rem;
@@ -1085,7 +1160,6 @@
       color: var(--accent);
     }
     
-    /* Enhanced Code Block - Interactive */
     .code-block {
       font-family: "JetBrains Mono", ui-monospace, monospace;
       font-size: 0.9rem;
@@ -1103,8 +1177,8 @@
     }
 
     .code-block:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+      border-color: var(--springboot);
+      box-shadow: 0 0 30px rgba(109, 179, 63, 0.3);
       transform: scale(1.02);
     }
 
@@ -1124,19 +1198,19 @@
     }
 
     .code-highlight {
-      background: rgba(56, 189, 248, 0.2);
-      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+      background: rgba(109, 179, 63, 0.2);
+      box-shadow: 0 0 20px rgba(109, 179, 63, 0.4);
       animation: highlightPulse 0.5s ease;
     }
 
     @keyframes highlightPulse {
-      0%, 100% { background: rgba(56, 189, 248, 0.2); }
-      50% { background: rgba(56, 189, 248, 0.4); }
+      0%, 100% { background: rgba(109, 179, 63, 0.2); }
+      50% { background: rgba(109, 179, 63, 0.4); }
     }
 
     .code-block::after {
       content: '▊';
-      color: var(--accent);
+      color: var(--springboot);
       animation: codeCursorBlink 1s infinite;
       opacity: 0;
     }
@@ -1153,12 +1227,11 @@
     .copy-msg {
       margin-left: 0.8rem;
       font-size: 0.85rem;
-      color: var(--success);
+      color: var(--springboot);
       opacity: 0;
       transition: opacity 0.2s ease;
     }
 
-    /* Bars visualizer - Enhanced */
     .bars {
       display: flex;
       align-items: flex-end;
@@ -1171,13 +1244,13 @@
     }
     .bars div {
       flex: 1;
-      background: linear-gradient(to top, var(--accent), #22c55e);
+      background: linear-gradient(to top, var(--accent), var(--springboot));
       border-radius: 999px 999px 0 0;
       transition: height 0.2s ease;
       min-height: 10px;
     }
 
-    /* Contact - LARGER */
+    /* Contact */
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
@@ -1186,6 +1259,7 @@
     .contact-card {
       padding: 2.5rem;
       font-size: 1rem;
+      animation: cardSlideIn 0.6s ease-out;
     }
     .contact-card h3 {
       font-size: 1.8rem;
@@ -1203,7 +1277,7 @@
       transition: all 0.3s ease;
     }
     .contact-list li:hover {
-      background: rgba(56, 189, 248, 0.05);
+      background: rgba(109, 179, 63, 0.05);
       padding-left: 1rem;
     }
     .contact-list a {
@@ -1213,7 +1287,7 @@
       transition: all 0.3s ease;
     }
     .contact-list a:hover {
-      color: var(--success);
+      color: var(--springboot);
       text-decoration: underline;
     }
     .contact-form .form-group {
@@ -1223,7 +1297,7 @@
       display: block;
       font-size: 0.95rem;
       margin-bottom: 0.5rem;
-      color: var(--success);
+      color: var(--springboot);
       font-weight: 600;
     }
     .contact-form input,
@@ -1241,8 +1315,8 @@
     .contact-form input:focus,
     .contact-form textarea:focus {
       outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.1);
+      border-color: var(--springboot);
+      box-shadow: 0 0 0 3px rgba(109, 179, 63, 0.1);
     }
     body.light .contact-form input,
     body.light .contact-form textarea {
@@ -1256,9 +1330,9 @@
       display: none;
     }
     .form-msg.success {
-      background: rgba(34, 197, 94, 0.1);
-      border: 2px solid #22c55e;
-      color: #22c55e;
+      background: rgba(109, 179, 63, 0.1);
+      border: 2px solid var(--springboot);
+      color: var(--springboot);
       display: block;
     }
     .form-msg.error {
@@ -1417,14 +1491,14 @@
   <!-- Hero Section -->
   <section id="home" class="section hero">
     <div class="hero-content glass">
-      <p class="tag">✨ Machine Learning & Software Developer</p>
+      <p class="tag">☕ Full Stack Java Developer & ML Enthusiast</p>
       <h1>Hi, I'm <span class="highlight">Abhay Singh Yadav</span></h1>
       <h2 class="typing">
         <span id="typingText"></span><span class="cursor">|</span>
       </h2>
       <p class="hero-text">
-        B.Tech CSE @ Lovely Professional University. Passionate about Data
-        Structures, Algorithms, Machine Learning, and building real-world solutions.
+        B.Tech CSE @ Lovely Professional University. Specializing in Core Java, Spring Boot Full Stack Development, 
+        Data Structures & Algorithms, and Machine Learning. Building scalable enterprise applications.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn primary"><span>View Projects</span></a>
@@ -1447,7 +1521,7 @@
           <span>ASY</span>
         </div>
       </div>
-      <div class="orbit-tag">🤖 ML • 🐍 Python • 🌐 Flask • 📱 Android • 💻 DSA</div>
+      <div class="orbit-tag">☕ Java • 🍃 Spring Boot • 🤖 ML • 🐍 Python • 💻 DSA</div>
     </div>
   </section>
 
@@ -1455,19 +1529,18 @@
   <section id="about" class="section">
     <div class="section-header">
       <h2>About Me</h2>
-      <p>Who I am and what drives my work in technology and innovation.</p>
+      <p>Full Stack Java Developer passionate about building robust enterprise applications.</p>
     </div>
     <div class="about-grid">
       <div class="glass about-card">
         <h3>Profile</h3>
         <p>
-          I am a Computer Science student focused on Data Structures, Algorithms,
-          and competitive programming, using C++ and Python to solve challenging
-          problems and build impactful applications.
+          I am a Computer Science student specializing in <strong>Core Java</strong> and <strong>Spring Boot Full Stack Development</strong>. 
+          My expertise includes building enterprise-grade applications with RESTful APIs, Microservices, and robust backend systems.
         </p>
         <p>
-          My goal is to combine strong fundamentals with practical projects in
-          Machine Learning, Web, and Android to deliver production-ready solutions.
+          With strong foundations in Data Structures & Algorithms using Java and C++, I combine technical excellence 
+          with practical implementation in Spring Boot, Hibernate, and modern web technologies to deliver production-ready solutions.
         </p>
       </div>
       <div class="glass about-card timeline">
@@ -1477,6 +1550,13 @@
           <div>
             <h4>B.Tech CSE</h4>
             <p>Lovely Professional University</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <span class="year">2024 – Present</span>
+          <div>
+            <h4>Full Stack Java Developer</h4>
+            <p>Core Java + Spring Boot Specialization</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -1494,49 +1574,68 @@
   <section id="skills" class="section">
     <div class="section-header">
       <h2>Technical Skills</h2>
-      <p>Technologies and tools I use to build innovative solutions.</p>
+      <p>Modern tech stack for building enterprise applications and ML solutions.</p>
     </div>
     <div class="skills-grid">
       <div class="glass skill-card">
-        <h3>🔤 Languages</h3>
+        <h3>☕ Core Java & Backend</h3>
         <ul class="skill-list">
+          <li><span>Core Java (OOP, Collections)</span><span class="pill">Expert</span></li>
+          <li><span>Spring Boot</span><span class="pill">Full Stack</span></li>
+          <li><span>Hibernate & JPA</span><span class="pill">ORM</span></li>
+          <li><span>RESTful APIs</span><span class="pill">Microservices</span></li>
+          <li><span>Maven & Gradle</span><span class="pill">Build Tools</span></li>
+        </ul>
+      </div>
+      <div class="glass skill-card">
+        <h3>🌐 Frontend & Web</h3>
+        <ul class="skill-list">
+          <li><span>HTML/CSS/JavaScript</span><span class="pill">Frontend</span></li>
+          <li><span>Thymeleaf</span><span class="pill">Template Engine</span></li>
+          <li><span>Bootstrap & Tailwind</span><span class="pill">UI Frameworks</span></li>
+          <li><span>React (Learning)</span><span class="pill">Modern JS</span></li>
+        </ul>
+      </div>
+      <div class="glass skill-card">
+        <h3>🔤 Languages & DSA</h3>
+        <ul class="skill-list">
+          <li><span>Java</span><span class="pill">Primary</span></li>
           <li><span>C++</span><span class="pill">DSA & CP</span></li>
           <li><span>Python</span><span class="pill">ML & Scripting</span></li>
-          <li><span>Java</span><span class="pill">Android</span></li>
-          <li><span>JavaScript</span><span class="pill">Web</span></li>
+          <li><span>SQL</span><span class="pill">Database</span></li>
         </ul>
       </div>
       <div class="glass skill-card">
-        <h3>🛠️ Development</h3>
+        <h3>🗄️ Database & Tools</h3>
         <ul class="skill-list">
-          <li><span>Flask</span><span class="pill">Backend</span></li>
-          <li><span>HTML/CSS</span><span class="pill">Frontend</span></li>
-          <li><span>Android (Kotlin/Java)</span><span class="pill">Mobile</span></li>
+          <li><span>MySQL & PostgreSQL</span><span class="pill">RDBMS</span></li>
+          <li><span>MongoDB</span><span class="pill">NoSQL</span></li>
           <li><span>Git & GitHub</span><span class="pill">Version Control</span></li>
+          <li><span>Postman</span><span class="pill">API Testing</span></li>
         </ul>
       </div>
       <div class="glass skill-card">
-        <h3>🤖 Machine Learning & NLP</h3>
+        <h3>🤖 Machine Learning</h3>
         <ul class="skill-list">
-          <li><span>Supervised/Unsupervised ML</span></li>
-          <li><span>Clustering, Classification</span></li>
-          <li><span>Basic NLP Pipelines</span></li>
           <li><span>TensorFlow & Scikit-learn</span></li>
+          <li><span>Supervised/Unsupervised ML</span></li>
+          <li><span>Classification & Clustering</span></li>
+          <li><span>Basic NLP Pipelines</span></li>
         </ul>
       </div>
       <div class="glass skill-card counters">
         <h3>📊 Stats</h3>
         <div class="counter-item">
-          <span class="counter" data-target="500">0</span>
+          <span class="counter" data-target="600">0</span>
           <span class="label">DSA Problems Solved</span>
         </div>
         <div class="counter-item">
-          <span class="counter" data-target="15">0</span>
-          <span class="label">Major Projects</span>
+          <span class="counter" data-target="20">0</span>
+          <span class="label">Projects Completed</span>
         </div>
         <div class="counter-item">
-          <span class="counter" data-target="8">0</span>
-          <span class="label">Core Domains</span>
+          <span class="counter" data-target="10">0</span>
+          <span class="label">Technologies Mastered</span>
         </div>
       </div>
     </div>
@@ -1546,89 +1645,111 @@
   <section id="projects" class="section">
     <div class="section-header">
       <h2>Featured Projects</h2>
-      <p>Selected work across Machine Learning, Web, and Android development.</p>
+      <p>Professional projects across Spring Boot, Machine Learning, and Full Stack Development.</p>
     </div>
 
     <div class="filter-bar glass">
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="springboot">Spring Boot</button>
       <button class="filter-btn" data-filter="ml">ML</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="android">Android</button>
+      <button class="filter-btn" data-filter="fullstack">Full Stack</button>
     </div>
 
     <div class="projects-grid">
+      <article class="project-card glass" data-category="springboot">
+        <h3>🏥 Hospital Management System</h3>
+        <p>
+          Enterprise-grade Spring Boot application with patient management, appointment scheduling, 
+          doctor records, and role-based authentication. Implements RESTful APIs with MySQL database.
+        </p>
+        <div class="tags">
+          <span>Spring Boot</span><span>Hibernate</span><span>MySQL</span><span>REST API</span><span>Thymeleaf</span>
+        </div>
+        <a href="https://github.com/Abhay9889/hospital-management" target="_blank" class="project-link">View on GitHub</a>
+      </article>
+
+      <article class="project-card glass" data-category="springboot">
+        <h3>🛒 E-Commerce Platform</h3>
+        <p>
+          Full-featured online shopping platform built with Spring Boot, featuring product catalog, 
+          shopping cart, order management, and payment integration with secure authentication.
+        </p>
+        <div class="tags">
+          <span>Spring Boot</span><span>Spring Security</span><span>JPA</span><span>Bootstrap</span>
+        </div>
+        <a href="https://github.com/Abhay9889/ecommerce-springboot" target="_blank" class="project-link">View on GitHub</a>
+      </article>
+
       <article class="project-card glass" data-category="ml">
         <h3>🚗 Traffic Flow Clustering System</h3>
         <p>
-          ML-based clustering of traffic patterns to analyze congestion and
-          optimize traffic management using unsupervised learning.
+          ML-based traffic pattern analysis using unsupervised clustering algorithms to identify 
+          congestion zones and optimize traffic management with real-time data processing.
         </p>
         <div class="tags">
-          <span>Python</span><span>ML</span><span>Clustering</span><span>OpenCV</span>
+          <span>Python</span><span>Scikit-learn</span><span>OpenCV</span><span>Clustering</span>
         </div>
-        <a href="https://github.com/Abhay9889" target="_blank" class="project-link">View Project</a>
+        <a href="https://github.com/Abhay9889/traffic-clustering" target="_blank" class="project-link">View on GitHub</a>
       </article>
 
-      <article class="project-card glass" data-category="web">
-        <h3>🏥 Hospital Management System</h3>
+      <article class="project-card glass" data-category="fullstack">
+        <h3>📝 Task Management API</h3>
         <p>
-          Full-stack web application for managing patients, appointments, and
-          doctor records with secure authentication.
+          RESTful API service built with Spring Boot for task and project management with CRUD operations, 
+          user authentication, and comprehensive API documentation using Swagger.
         </p>
         <div class="tags">
-          <span>Flask</span><span>SQL</span><span>Bootstrap</span><span>REST API</span>
+          <span>Spring Boot</span><span>REST API</span><span>JWT</span><span>Swagger</span><span>PostgreSQL</span>
         </div>
-        <a href="https://github.com/Abhay9889" target="_blank" class="project-link">View Project</a>
+        <a href="https://github.com/Abhay9889/task-api" target="_blank" class="project-link">View on GitHub</a>
       </article>
 
-      <article class="project-card glass" data-category="web">
+      <article class="project-card glass" data-category="fullstack">
         <h3>💼 Developer Portfolio</h3>
         <p>
-          Personal portfolio showcasing projects, skills, and achievements with
-          responsive design and smooth animations.
+          Modern, responsive portfolio website with smooth animations, project showcases, 
+          and contact form integration. Features dark/light theme toggle and interactive elements.
         </p>
         <div class="tags">
           <span>HTML</span><span>CSS</span><span>JavaScript</span><span>EmailJS</span>
         </div>
-        <a href="https://abhay9889.github.io/portfolio/" target="_blank" class="project-link">
-          Live Portfolio
-        </a>
-      </article>
-
-      <article class="project-card glass" data-category="android">
-        <h3>📱 Android Utility App</h3>
-        <p>
-          Android application built with Kotlin/Java focusing on productivity,
-          clean UI, and Firebase integration.
-        </p>
-        <div class="tags">
-          <span>Android</span><span>Kotlin</span><span>Firebase</span><span>MVVM</span>
-        </div>
-        <a href="https://github.com/Abhay9889" target="_blank" class="project-link">View Project</a>
-      </article>
-
-      <article class="project-card glass" data-category="ml">
-        <h3>📊 Data Visualization Dashboard</h3>
-        <p>
-          Interactive analytics dashboard with real-time data visualizations
-          using Matplotlib and Seaborn.
-        </p>
-        <div class="tags">
-          <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>NumPy</span>
-        </div>
-        <a href="https://github.com/Abhay9889" target="_blank" class="project-link">View Project</a>
+        <a href="https://abhay9889.github.io/portfolio/" target="_blank" class="project-link">Live Demo</a>
       </article>
 
       <article class="project-card glass" data-category="ml">
         <h3>🧠 ML Prediction Engine</h3>
         <p>
-          Advanced machine learning system achieving 96% accuracy using
-          ensemble methods and feature engineering.
+          Advanced machine learning system achieving 96% accuracy using ensemble methods, 
+          feature engineering, and hyperparameter tuning for predictive analytics.
         </p>
         <div class="tags">
-          <span>Python</span><span>Scikit-learn</span><span>TensorFlow</span><span>XGBoost</span>
+          <span>Python</span><span>TensorFlow</span><span>XGBoost</span><span>Pandas</span>
         </div>
-        <a href="https://github.com/Abhay9889" target="_blank" class="project-link">View Project</a>
+        <a href="https://github.com/Abhay9889/ml-prediction" target="_blank" class="project-link">View on GitHub</a>
+      </article>
+
+      <article class="project-card glass" data-category="springboot">
+        <h3>📚 Library Management System</h3>
+        <p>
+          Comprehensive Spring Boot application for library operations including book inventory, 
+          member management, issue/return tracking, and automated fine calculation.
+        </p>
+        <div class="tags">
+          <span>Spring Boot</span><span>MySQL</span><span>JPA</span><span>Validation</span>
+        </div>
+        <a href="https://github.com/Abhay9889/library-system" target="_blank" class="project-link">View on GitHub</a>
+      </article>
+
+      <article class="project-card glass" data-category="fullstack">
+        <h3>🔐 Authentication Microservice</h3>
+        <p>
+          Secure authentication and authorization microservice using Spring Security, JWT tokens, 
+          and OAuth2 for modern application security architecture.
+        </p>
+        <div class="tags">
+          <span>Spring Security</span><span>JWT</span><span>OAuth2</span><span>Microservices</span>
+        </div>
+        <a href="https://github.com/Abhay9889/auth-service" target="_blank" class="project-link">View on GitHub</a>
       </article>
     </div>
   </section>
@@ -1637,26 +1758,32 @@
   <section id="lab" class="section">
     <div class="section-header">
       <h2>Code Lab 🧪</h2>
-      <p>Interactive space to explore algorithms, visualizations, and code snippets.</p>
+      <p>Interactive showcase of algorithms, Spring Boot snippets, and code visualizations.</p>
     </div>
     <div class="lab-grid">
       <div class="glass lab-card">
-        <h3>📝 Live Code Snippet</h3>
-        <pre><code class="code-block" id="codeBlock">// Binary Search Algorithm in C++
-int binarySearch(vector&lt;int&gt;& arr, int target) {
-    int left = 0, right = arr.size() - 1;
+        <h3>☕ Spring Boot REST Controller</h3>
+        <pre><code class="code-block" id="codeBlock">@RestController
+@RequestMapping("/api/users")
+public class UserController {
     
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        
-        if (arr[mid] == target) 
-            return mid;
-        else if (arr[mid] < target) 
-            left = mid + 1;
-        else 
-            right = mid - 1;
+    @Autowired
+    private UserService userService;
+    
+    @GetMapping
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(
+            userService.findAll()
+        );
     }
-    return -1;
+    
+    @PostMapping
+    public ResponseEntity<User> createUser(
+        @Valid @RequestBody User user) {
+        return ResponseEntity
+            .status(HttpStatus.CREATED)
+            .body(userService.save(user));
+    }
 }</code></pre>
         <button class="btn small primary" id="copyCode"><span>📋 Copy Code</span></button>
         <span id="copyMsg" class="copy-msg">✅ Copied!</span>
@@ -1664,7 +1791,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
 
       <div class="glass lab-card">
         <h3>📊 Algorithm Visualizer</h3>
-        <p>Click below to visualize bubble sort on a random array.</p>
+        <p>Interactive bubble sort visualization with Java-style array operations.</p>
         <div class="bars" id="barsContainer"></div>
         <button class="btn small primary" id="sortBtn"><span>▶️ Visualize Sort</span></button>
       </div>
@@ -1675,7 +1802,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
   <section id="contact" class="section">
     <div class="section-header">
       <h2>Get In Touch</h2>
-      <p>Let's collaborate on impactful projects and build something amazing together.</p>
+      <p>Let's collaborate on Spring Boot projects and build enterprise solutions together.</p>
     </div>
     <div class="contact-grid">
       <div class="glass contact-card">
@@ -1711,7 +1838,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
         </div>
         <div class="form-group">
           <label for="message">Your Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me about your Spring Boot project or opportunity..."></textarea>
         </div>
         <button type="submit" class="btn primary"><span>Send Message 🚀</span></button>
         <p class="form-msg" id="formMsg"></p>
@@ -1722,7 +1849,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
   <!-- Footer -->
   <footer class="footer">
     <p>© <span id="year"></span> Abhay Singh Yadav. All rights reserved.</p>
-    <p>Crafted with ❤️ and code</p>
+    <p>Crafted with ☕ Java & 🍃 Spring Boot</p>
   </footer>
 
   <script>
@@ -1752,8 +1879,8 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
     // Fun ASY Circle Interactions
     const avatarCircle = document.getElementById('avatarCircle');
     const animations = ['bounce', 'spin', 'shake', 'rainbow', 'explode'];
-    const emojis = ['🎉', '✨', '🚀', '💫', '⭐', '🌟', '💥', '🎊', '🎈', '🔥'];
-    const sounds = ['Woohoo!', 'Amazing!', 'Boom!', 'Awesome!', 'Cool!', 'Yeah!'];
+    const emojis = ['🎉', '✨', '🚀', '💫', '⭐', '🌟', '💥', '🎊', '🎈', '🔥', '☕', '🍃'];
+    const sounds = ['Woohoo!', 'Amazing!', 'Boom!', 'Awesome!', 'Cool!', 'Yeah!', 'Spring Boot!', 'Java Rocks!'];
     let clickCount = 0;
 
     function createEmojiExplosion(x, y) {
@@ -1795,7 +1922,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       floatingText.style.top = y + 'px';
       floatingText.style.fontSize = '2rem';
       floatingText.style.fontWeight = 'bold';
-      floatingText.style.color = 'var(--accent)';
+      floatingText.style.color = 'var(--springboot)';
       floatingText.style.pointerEvents = 'none';
       floatingText.style.zIndex = '1000';
       floatingText.style.animation = 'floatUp 2s ease-out forwards';
@@ -1809,27 +1936,22 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 2;
 
-      // Remove all previous animations
       animations.forEach(anim => this.classList.remove(anim));
 
-      // Random animation
       const randomAnim = animations[Math.floor(Math.random() * animations.length)];
       this.classList.add(randomAnim);
 
-      // Effects based on click count
       if (clickCount % 5 === 0) {
         createConfetti(x, y);
       } else {
         createEmojiExplosion(x, y);
       }
 
-      // Random sound text
       const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
       showFloatingText(randomSound, x, y - 50);
 
-      // Change avatar text temporarily
       const originalText = this.textContent;
-      const funTexts = ['😎', '🤪', '🚀', '⚡', '🔥', '💎', '🎯', '🎪'];
+      const funTexts = ['😎', '🤪', '🚀', '⚡', '🔥', '💎', '🎯', '☕', '🍃'];
       this.textContent = funTexts[Math.floor(Math.random() * funTexts.length)];
       
       setTimeout(() => {
@@ -1846,22 +1968,21 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       codeClickCount++;
 
       if (codeClickCount % 3 === 0) {
-        // Matrix effect
         this.classList.add('matrix');
         setTimeout(() => this.classList.remove('matrix'), 500);
       } else {
-        // Highlight effect
         this.classList.add('code-highlight');
         setTimeout(() => this.classList.remove('code-highlight'), 500);
       }
     });
 
-    // Typing effect
+    // Typing effect - Updated for Spring Boot
     const roles = [
+      "Full Stack Java Developer",
+      "Spring Boot Expert",
+      "Backend Developer (Spring Framework)",
       "Machine Learning Engineer",
-      "Software Developer (Python / Java)",
-      "Android & Web Developer",
-      "Data Structures & Algorithms Expert"
+      "Data Structures & Algorithms Specialist"
     ];
 
     let roleIdx = 0;
@@ -1921,14 +2042,12 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       const scrolled = (scrollTop / height) * 100;
       scrollProgress.style.width = scrolled + "%";
 
-      // Show/hide scroll to top button
       if (scrollTop > 300) {
         scrollToTop.style.display = 'flex';
       } else {
         scrollToTop.style.display = 'none';
       }
 
-      // Header scroll effect
       if (scrollTop > 50) {
         header.classList.add('scrolled');
       } else {
@@ -1936,7 +2055,6 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       }
     });
 
-    // Scroll to top functionality
     scrollToTop?.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -1951,7 +2069,6 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       nav?.classList.toggle("open");
     });
 
-    // Close mobile nav when clicking links
     document.querySelectorAll('.nav a').forEach(link => {
       link.addEventListener('click', () => {
         nav?.classList.remove('open');
@@ -1987,7 +2104,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       })
     );
 
-    // Counters with Intersection Observer
+    // Counters
     const counters = document.querySelectorAll(".counter");
     let countersStarted = false;
 
@@ -2036,7 +2153,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       }
     });
 
-    // Sort visualizer (bubble sort)
+    // Sort visualizer
     const barsContainer = document.getElementById("barsContainer");
     const sortBtn = document.getElementById("sortBtn");
 
@@ -2073,9 +2190,9 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
             swapped = true;
           }
           bars[j].style.background =
-            "linear-gradient(to top, var(--accent), #22c55e)";
+            "linear-gradient(to top, var(--accent), var(--springboot))";
           bars[j + 1].style.background =
-            "linear-gradient(to top, var(--accent), #22c55e)";
+            "linear-gradient(to top, var(--accent), var(--springboot))";
         }
         if (!swapped) break;
       }
@@ -2091,10 +2208,9 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       sortBtn.querySelector('span').textContent = '▶️ Visualize Sort';
     });
 
-    // Initial bars
     createBars();
 
-    // Contact form with EmailJS (from paste.txt)
+    // Contact form with EmailJS
     const contactForm = document.getElementById("contactForm");
     const formMsg = document.getElementById("formMsg");
 
@@ -2107,7 +2223,6 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
       submitBtn.disabled = true;
       submitBtn.querySelector('span').textContent = '⏳ Sending...';
 
-      // EmailJS configuration from paste.txt
       emailjs.sendForm('service_aabh9889', 'template_9w48p7u', this)
         .then(() => {
           formMsg.className = 'form-msg success';
@@ -2133,7 +2248,7 @@ int binarySearch(vector&lt;int&gt;& arr, int target) {
     const yearSpan = document.getElementById("year");
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // Smooth scroll for anchor links
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
